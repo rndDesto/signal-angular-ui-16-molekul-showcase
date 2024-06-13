@@ -1,0 +1,11 @@
+<div class="signal-tooltip-root">
+    <div #tooltipTrigger (mouseenter)="showTooltips()">
+        <ng-content></ng-content>
+    </div>
+    <div class="tooltip-konten" [ngClass]="{
+        'bottom': position === 'bottom' && tooltipShow,
+        'top':position === 'top' && tooltipShow
+    }">
+        <ng-content select="[tooltip-content]"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="signal-input-basic-root">
+    <div class="signal-input-label" *ngIf="label">
+        <signal-body 
+        [weight]="labelWeight" 
+        size="1"
+        [color]="labelColor">{{label}} <span *ngIf="required" class="input-asterik">*</span></signal-body>
+    </div>
+    <div class="signal-input-wrapper" [ngClass]="getInputWrapperClass()">
+        <input 
+        type="text" 
+        [(ngModel)]="value" 
+        (ngModelChange)="onChange($event)" 
+        [ngClass]="getInputClass()" 
+        [placeholder]="placeholder" 
+        (blur)="onBlur($event)" 
+        [disabled]="controls?.disabled"
+        >
+        <div *ngIf="!!rightSection?.type"  class="right-section">
+            <signal-label *ngIf="rightSection?.type === 'label'" color="tritary" rounded="1" variant="1">
+                {{rightSection?.name}}
+            </signal-label>
+            <signal-icon *ngIf="rightSection?.type === 'icon'" [fontIcon]="rightSection?.name || ''" [color]="rightSection?.color || 'secondary-3'"></signal-icon>
+            <signal-body *ngIf="rightSection?.type === 'text'" color="disable">{{rightSection?.name || ''}}</signal-body>
+        </div>
+        <div *ngIf="!!leftSection?.type" class="left-section">
+            <signal-label *ngIf="leftSection?.type === 'label'" color="tritary" rounded="1" variant="1">
+                {{leftSection?.name}}
+            </signal-label>
+            <signal-icon *ngIf="leftSection?.type === 'icon'" [fontIcon]="leftSection?.name || ''" [color]="leftSection?.color || 'secondary-3'"></signal-icon>
+            <signal-body *ngIf="leftSection?.type === 'text'" size="1" color="disable">{{leftSection?.name || ''}}</signal-body>
+        </div>
+    </div>
+    <div *ngIf="supportText" [ngClass]="getSupportClass()">
+        {{ supportText }}
+    </div>
+</div>

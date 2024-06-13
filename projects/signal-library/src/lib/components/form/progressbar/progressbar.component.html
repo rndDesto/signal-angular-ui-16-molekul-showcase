@@ -1,0 +1,16 @@
+<div class="signal-progressbar-root" [ngClass]="getProgressClasses()">
+    <div class="range-bar" 
+        [ngClass]="getBarClasses()"
+        [style.width]="value + '%'">
+        <div class="signal-input-label" *ngIf="label">
+            <signal-body 
+            [weight]="labelWeight" 
+            size="1"
+            [color]="labelColor">{{label}} <span *ngIf="required" class="input-asterik">*</span>
+            </signal-body>
+        </div>
+    </div>
+</div>
+  
+
+  

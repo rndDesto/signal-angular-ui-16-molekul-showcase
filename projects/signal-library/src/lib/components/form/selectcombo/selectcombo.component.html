@@ -1,0 +1,68 @@
+<div class="select-combo-root" [ngClass]="getSelectComboRoot()">
+    <div class="combo-wrapper" [ngClass]="getSelectWrapper()">
+        <div class="chip-container">
+            <ng-container *ngIf="handleSelectedItemOnly().length <= simplifyAt -1 ; else simplifyChip">
+                <div *ngFor="let itemSelect of handleSelectedItemOnly()" 
+                    (click)="handleSelectedItem(itemSelect)">
+                    <div class="combo-chip">
+                        <span class="combo-text">
+                            {{ itemSelect.text }}
+                        </span>
+                        <signal-icon 
+                            [styles]="{ 'root': { 'maxHeight': '14px', 'fontSize': '12px' } }"
+                            fontIcon="ico_close" 
+                            color="secondary-7">
+                        </signal-icon>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #simplifyChip>
+                <div class="combo-chip">
+                    <span class="combo-text">
+                        {{ handleSelectedItemOnly().length }} item terpilih
+                    </span>
+                </div>
+            </ng-template>
+            
+            <input type="text" 
+                class="combo-input" 
+                [(ngModel)]="value"
+                (focus)="toggleDropdown(true)"
+                (ngModelChange)="onKeyUp($event)"
+                (keydown)="onKeyDown($event)" 
+                #comboInput
+                >
+        </div>
+        
+        <div class="compo-action">
+            <signal-icon 
+                *ngIf="handleSelectedItemOnly().length" 
+                (click)="handleInitData()"
+                fontIcon="ico_failed_filled" 
+                color="neutral-3" 
+                [styles]="{
+                    'root':{'cursor':'pointer'}
+                }"></signal-icon>
+            <signal-icon 
+                [fontIcon]="showDropDown ? 'ico_chevron_up' : 'ico_chevron_down'" 
+                color="secondary-7" 
+                [styles]="{
+                    'root':{'cursor':'pointer'}
+                }">
+            </signal-icon>
+        </div>
+    </div>
+    <div *ngIf="showDropDown" class="dropdown-combo">
+        <div *ngFor="let itemList of filteredData" 
+            (click)="handleSelectedItem(itemList)" 
+            [ngClass]="getClassComboItem(itemList)">
+            {{itemList.text}}
+        </div>
+        <div *ngIf="filteredData.length === 0" class="dropdown-combo-notfound">
+            <div>'{{value}}' Data tidak ditemukan</div>
+            <signal-body [styles]="{'cursor':'pointer'}"  color="info-5" (click)="handleAddItem(value)">Tambah</signal-body>
+        </div>
+    </div>
+</div>
+
+<!-- <pre>{{data | json}}</pre> -->

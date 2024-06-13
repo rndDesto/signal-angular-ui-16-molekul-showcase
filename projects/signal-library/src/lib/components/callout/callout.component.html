@@ -1,0 +1,7 @@
+<div *ngIf="open" class="signal-callout-root flex gap-2 rounded-xl" [ngClass]="getCalloutClasses()" [ngStyle]="styles">
+    <ng-content select="[iconCallout]"></ng-content>
+    <div class="grow">
+        <ng-content></ng-content>
+    </div>
+    <signal-icon *ngIf="renderOnclose" fontIcon="ico_close" size="3" color="disabled" class="cursor-pointer" (click)="handleClose()"></signal-icon>
+</div>

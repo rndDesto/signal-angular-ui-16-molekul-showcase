@@ -1,0 +1,20 @@
+
+<div class="signal-otp-root" id="c_{{componentKey}}" *ngIf="otpForm"  [ngStyle]="styles?.root">
+  <ng-container *ngFor="let item of otpForm.controls | keyvalue; let i=index">
+    <input 
+      [pattern]="config.allowNumbersOnly ? '\\d*' : ''" 
+      [type]="inputType" 
+      [placeholder]="placeholder || ''"
+      maxlength="1" 
+      class="otp-input {{config.inputClass}}"
+      autocomplete="off" 
+      [formControl]="getFormControl(item.value)"
+      id="otp_{{i}}_{{componentKey}}" 
+      (keydown)="onKeyDown($event)" 
+      (keyup)="onKeyUp($event, i)"
+      [ngClass]="getInputClass()"
+      [ngStyle]="styles?.body"
+      >
+  </ng-container>
+</div>
+  

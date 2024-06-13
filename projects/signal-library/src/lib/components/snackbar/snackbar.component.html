@@ -1,0 +1,10 @@
+
+  <div class="signal-snackbar-root" [ngClass]="getSnackbarWrapper()" *ngIf="open">
+    <div [ngClass]="getStickyPos()">
+        <div [ngClass]="getWidth()">
+            <div class="signal-snackbar-wrapper" [ngClass]="getColor()">
+                <ng-content></ng-content>
+            </div> 
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="signal-stepper-main">
+  <div class="signal-stepper-root" [ngClass]="getStepperVariantClass()" *ngIf="variant !== '3'; else standartStepper">
+    <ng-container *ngFor="let stepper of steps; let index = index; let last = last">
+      <div class="signal-stepper-item">
+        <div [ngClass]="getStepperActivedClass(index)" class="stepper-content">
+          <div class="stepper-counter" *ngIf="currentStep - 1 > index; else currStep">
+            <signal-icon size="5" color="neutral-0" fontIcon="ico_check"></signal-icon>
+          </div>
+          <ng-template #currStep>
+            <div class="stepper-counter">{{index+1}}</div>
+          </ng-template>
+          <div class="stepper-text">{{stepper.label}}</div>
+        </div>
+      </div>
+      <div *ngIf="!last" class="stepper-divider" [ngClass]="getStepperDividerClass(index)"></div>
+    </ng-container>
+  </div>
+
+  <ng-template #standartStepper>
+    <ng-container *ngFor="let stepper of steps; let index = index;">
+      <div *ngIf="currentStep === index+1;" class="flex justify-between">
+        <signal-body [color]="labelColor">{{stepper.label}}</signal-body> 
+        <signal-body [color]="labelColor">{{index+1}} / {{steps.length}}</signal-body>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

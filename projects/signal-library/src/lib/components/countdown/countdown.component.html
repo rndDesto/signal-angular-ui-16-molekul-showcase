@@ -1,0 +1,40 @@
+<div 
+  class="signal-countdown-root" 
+  [ngClass]="getCountdownRootClass()"
+  *ngIf="isValid; else errorContent">
+  
+  <div class="countdown-info" *ngIf="day">
+    <div [ngClass]="getCountdownClass()">
+      <p>{{ day | number:'2.0-0'}}</p>
+    </div>
+    <signal-body [size]="size" [color]="supportColor">Hari</signal-body>
+  </div>
+  <div *ngIf="day" class="countdown-separator" [ngClass]="getCountSupportClass()">:</div>
+  
+  <div class="countdown-info" *ngIf="hour">
+    <div [ngClass]="getCountdownClass()">
+      <p>{{ hour | number:'2.0-0'}}</p>
+    </div>
+    <signal-body [size]="size" [color]="supportColor">Jam</signal-body>
+  </div>
+  <div *ngIf="hour" class="countdown-separator" [ngClass]="getCountSupportClass()">:</div>
+
+  <div class="countdown-info">
+    <div [ngClass]="getCountdownClass()">
+      <p>{{ minute | number:'2.0-0'}}</p>
+    </div>
+    <signal-body [size]="size" [color]="supportColor">Menit</signal-body>
+  </div>
+  <div class="countdown-separator" [ngClass]="getCountSupportClass()">:</div>
+
+  <div class="countdown-info">
+    <div [ngClass]="getCountdownClass()">
+      <p>{{ second | number:'2.0-0'}}</p>
+    </div>
+    <signal-body [size]="size" [color]="supportColor">Detik</signal-body>
+  </div>
+</div>
+
+<ng-template #errorContent>
+  <p>Input tidak valid</p>
+</ng-template>

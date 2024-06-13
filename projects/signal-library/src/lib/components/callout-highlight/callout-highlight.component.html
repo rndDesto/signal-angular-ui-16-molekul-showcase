@@ -1,0 +1,12 @@
+<div [ngClass]="getCalloutClasses()">
+    <div *ngIf="images !== ''" class="callout-highlight-images">
+        <signal-images 
+        rounded="1" 
+        fit="cover"
+        [image]="images"></signal-images>
+    </div>
+    <div class="callout-highlight-content">
+        <ng-content></ng-content>
+    </div>
+    <signal-icon fontIcon="ico_chevron_right" color="neutral-0"></signal-icon>
+</div>

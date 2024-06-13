@@ -1,0 +1,20 @@
+<nav>
+    <ul class="signal-breadcrumb-root">
+       <ng-container *ngFor="let item of displayItems; let index = index ;let last = last">
+         <li>
+           <div class="signal-breadcrumb-item" (click)="handleItemClick($event, item.href)">
+             {{ isObject(item) ? (item.name || 'name invalid') : item }}
+           </div>
+           <ng-container *ngIf="index === 1 && items.length > 5">
+             <div class="dropdown">
+               <div *ngFor="let dropdownItem of items.slice(1, items.length - 2)"
+                    class="dropdown-item signal-breadcrumb-item" 
+                    (click)="handleItemClick($event, dropdownItem.href)">
+                 {{ isObject(dropdownItem) ? (dropdownItem.name || 'name invalid') : dropdownItem }}
+               </div>
+             </div>
+           </ng-container>
+         </li>
+       </ng-container>
+     </ul>
+   </nav>

@@ -1,0 +1,27 @@
+<div class="signal-range-root">
+  <div class="signal-input-label" *ngIf="label">
+      <signal-body 
+      [weight]="labelWeight" 
+      size="1"
+      [color]="labelColor">{{label}} <span *ngIf="required" class="input-asterik">*</span>
+    </signal-body>
+  </div>
+  <div class="range-track" #rangeTrack></div>
+  <div class="range-bar" [ngClass]="getBarClasses()" [style.left]="lowerVal + '%'" [style.width]="higherVal - lowerVal + '%'"></div>
+  <div class="range-thumb left-thumb" #leftThumb [style.left]="lowerVal + '%'" tabindex="0" (mousedown)="startDragging($event, 'left')">
+    <signal-icon fontIcon="ico_radio_button" [color]="color"></signal-icon>
+  </div>
+  <div class="range-thumb right-thumb" #rightThumb [style.left]="higherVal + '%'" tabindex="0" (mousedown)="startDragging($event, 'right')">
+    <signal-icon fontIcon="ico_radio_button" [color]="color"></signal-icon>
+  </div>
+  <div *ngIf="mark?.length">
+    <ng-container *ngTemplateOutlet="markingbar"></ng-container>
+  </div>
+</div>
+
+<ng-template #markingbar>
+  <div class="range-mark" *ngFor="let marking of mark" [style.left]="marking.value + '%'">
+    <div class="mark"></div>
+    <div class="mark-label">{{ marking.label }}</div>
+  </div>
+</ng-template>

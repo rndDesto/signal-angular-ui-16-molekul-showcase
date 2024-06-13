@@ -1,0 +1,69 @@
+@import '../../../assets/styles/fontColor.scss';
+@import '../font-tsel-batik.scss';
+@import '../text-align.scss';
+.heading-signal {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    @include text-color;
+    @include direct-tselbatik('regular');
+    @include direct-tselbatik('bold');
+    @include text-align;
+
+    &.size-1 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    &.size-2 {
+        font-size: 24px;
+        line-height: 40px;
+    }
+
+    &.size-3 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+
+    &.size-4,.size-5,.size-6 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .heading-signal {
+        &.size-1 {
+            font-size: 32px;
+            line-height: 48px;
+        }
+        &.size-2{
+            font-size: 28px;
+            line-height: 40px;
+        }
+        &.size-4 {
+            font-size: 24px;
+            line-height: 40px;
+        }
+        &.size-5 {
+            font-size: 18px;
+            line-height: 24px;
+        }
+        
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .heading-signal {
+        &.size-1 {
+            font-size: 44px;
+            line-height: 56px;
+        }
+        &.size-2{
+            font-size: 32px;
+            line-height: 48px;
+        }
+    }
+}
+

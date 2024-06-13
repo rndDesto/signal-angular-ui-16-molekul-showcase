@@ -1,0 +1,39 @@
+<div class="signal-upload-root" [ngStyle]="styles?.root">
+    <div *ngIf="!imageSrc" class="section-icon" (click)="openUpload()">
+            <signal-icon fontIcon="ico_camera" color="neutrl-3" ></signal-icon>
+            <signal-body>{{label}}</signal-body>
+    </div>
+    <img *ngIf="imageSrc" [src]="imageSrc" class="signal-upload-image" />
+
+    <div *ngIf="imageSrc" class="section-action">
+        <div class="action-panel">
+            <signal-icon 
+                (click)="removeImage()"
+                [styles]="{
+                    'root':{
+                        'cursor': 'pointer'
+                    }
+                }" 
+                fontIcon="ico_delete" 
+                color="neutral-0" ></signal-icon>
+            <signal-icon 
+                (click)="openUpload()"
+                [styles]="{
+                    'root':{
+                        'cursor': 'pointer'
+                    }
+                }"
+                fontIcon="ico_edit" 
+                color="neutral-0" ></signal-icon>
+        </div>
+    </div>
+
+</div>
+<p *ngIf="supportText && isError">{{supportText}}</p>
+
+<input type="file" class="hidden"
+    #fileInput 
+    (change)="handleFileInput($event)" 
+    [accept]="accept" 
+    [multiple]="multiple" 
+    [disabled]="disabled" />

@@ -1,0 +1,38 @@
+{
+    "git": {
+      "commitMessage": "success: release v${version}"
+    },
+    "plugins": {
+      "@release-it/bumper": {
+        "out": ["projects/*/package.json"]
+      },
+      "@release-it/conventional-changelog": {
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            { "type": "feat", "section": "Features" },
+            { "type": "fix", "section": "Bug Fixes" },
+            { "type": "chore", "section": "Chore" },
+            { "type": "docs", "section": "Docs" },
+            { "type": "style", "section": "Style" },
+            { "type": "refactor", "section": "Refactoring" }
+          ]
+        },
+        "context": {
+          "linkCompare": false
+        },
+        "infile": "CHANGELOG.md",
+        "gitRawCommitsOpts": {
+          "merges": null
+        }
+      }
+    },
+    "npm": {
+      "skipChecks": true,
+      "publish": false
+    },
+    "hooks": {
+      "after:bump": ["npm run build:tailwind --minify","npm run build:core", "npm run publish:core"],
+      "after:release": "echo Rilis ${name} telah selesai dengan v.${version}"
+    }
+  }

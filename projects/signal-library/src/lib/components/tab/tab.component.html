@@ -1,0 +1,18 @@
+<div class="signal-tab-root" [ngClass]="getTabClasses()">
+  <div
+    class="tabs"
+    [ngClass]="getTabClasses()"
+  >
+    <div
+      class="tab-item signal-tab-item"
+      *ngFor="let tab of items; let i = index"
+      (click)="selectTab(tab, i)"
+      [ngClass]="{ active: selectedTabIndex === i, full: full }"
+    >
+    <signal-body size="1" [color]="selectedTabIndex === i ? 'primary' : 'disable' " alignment="center">
+      {{ tab.name }}
+    </signal-body>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

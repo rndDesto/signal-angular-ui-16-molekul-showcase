@@ -1,0 +1,110 @@
+.signal-tab-root {
+    display: flex;
+    flex-direction: column;
+}
+
+.upper {
+    flex-direction: column-reverse;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: nowrap;    
+    margin-bottom: 16px;
+    border-bottom: 1px solid #EBEEEF;
+    overflow-x: auto;
+    max-width: 520px;
+
+
+    &.default{
+        .tab-item {
+            padding: 16px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            color: var(--signal-text-color-disable,#66707A);
+            min-width: 200px;
+    
+            &:hover{
+                color: #001A41;
+            }
+            &.active {
+                position: relative;
+                color: #001A41;
+                &::before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 4px;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    border-radius: 4px 4px 0 0;
+                    background-color: #0050AE;
+                }
+            }
+            &.full{
+                flex-grow: 1;
+            }
+        }
+    }
+
+    &.tema_satu{
+        .tab-item {
+            padding: 16px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            color: var(--signal-text-color-disable,#66707A);
+            min-width: 200px;
+            background-color: #0050AE;
+    
+            &:hover{
+                color: #001A41;
+            }
+            &.active {
+                position: relative;
+                color:red;
+                &::before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 4px;
+                    width: 100%;
+                    bottom: 0;
+                    top: 0;
+                    border-radius: 4px 4px 0 0;
+                    background-color: red;
+                }
+            }
+            &.full{
+                flex-grow: 1;
+            }
+        }
+    }
+
+
+
+    &.justify-center{
+        justify-content: center;
+    }
+    &.justify-start{
+        justify-content: start;
+    }
+    &.justify-end{
+        justify-content: end;
+    }
+
+}
+
+
+@media screen and (min-width: 800px) {
+    .tabs{
+        overflow-x: initial;
+        overflow: initial;
+        max-width: initial;
+        .tab-item{
+            min-width: initial;
+        }
+    }
+}

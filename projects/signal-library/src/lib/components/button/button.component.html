@@ -1,0 +1,13 @@
+<button
+    
+    [ngStyle]="getInlineStyles()"
+    [disabled]="disabled"
+    class="signal-button-root" 
+    [ngClass]="getButtonClasses()" 
+    (click)="onButtonClick($event)">
+        <div class="signal-button-body" 
+            [ngClass]="getButtonJustify()" 
+            [ngStyle]="styles?.body || styles">
+            <ng-content></ng-content>
+        </div>
+</button>

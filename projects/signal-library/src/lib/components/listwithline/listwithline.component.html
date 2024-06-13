@@ -1,0 +1,10 @@
+<div class="signal-listwithline-root" [ngClass]="getBgColor()" [style]="styles?.root">
+    <div class="listline-main" [ngClass]="getLineVariant()" [style]="styles?.body">
+        <div class="listline-icon" [ngClass]="getIconColor()">
+            <signal-icon [fontIcon]="icon" [color]="iconColor"></signal-icon>
+        </div>
+        <div class="listlint-content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

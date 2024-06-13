@@ -1,0 +1,17 @@
+<ng-container *ngIf="open">
+  <div class="signal-modal-root">
+    <div class="signal-modal-overlay" [ngClass]="getOverlayModal()" (click)="handleClose()"></div>
+
+    <div class="signal-modal-container" [ngClass]="getSizeModal()">
+      <div class="modal-paper-header">
+        <ng-content select=".header"></ng-content>
+      </div>
+      <div class="modal-paper-content">
+        <ng-content></ng-content>
+      </div>
+      <div class="modal-paper-footer">
+        <ng-content select=".footer"></ng-content>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,15 @@
+<div class="signal-switch-root">
+    <div *ngIf="labelPosition === 'left' && label" class="label-left">
+        {{label}}
+    </div>
+    <div class="switch-wrap">
+        <label class="switch">
+            <input type="checkbox" [checked]="checked" (change)="toggleSwitch($event)" [disabled]="disabled">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div *ngIf="labelPosition === 'right' && label" class="label-right">
+        <span>{{label}}</span>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+<div class="signal-chips-root" [ngStyle]=" styles?.root || styles">
+        <div
+            class="signal-chips-item"
+            *ngFor="let keyword of keywords; let i = index"
+            (click)="!keyword.isDisabled && handleSelected(keyword)"
+            [ngClass]="getChipsItemClasses()"
+            [ngStyle]=" styles?.body"
+            >
+            <div class="signal-chips-icon" 
+                [ngClass]="getChipsClasses()"
+                [class.actived]="keyword.name === selectedKey"
+                [class.disabled]="keyword.isDisabled"
+                >
+                <ng-container *ngIf="keyword.icon">
+                    <div class="chips-thumb">
+                        <signal-icon [fontIcon]="keyword.icon" size="3" [color]="keyword.isDisabled ? 'secondary-4' : 'secondary-7'"></signal-icon>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="keyword?.image">
+                    <img class="chips-image chips-thumb" [ngClass]="{'disabled': keyword.isDisabled}" [src]="keyword.image"/>
+                </ng-container>
+                <signal-body [weight]="weight" [size]="size" [color]="keyword.isDisabled ? 'secondary-4' : 'secondary-7'">
+                {{keyword.name}}
+                </signal-body>
+            </div>
+        </div>
+</div>

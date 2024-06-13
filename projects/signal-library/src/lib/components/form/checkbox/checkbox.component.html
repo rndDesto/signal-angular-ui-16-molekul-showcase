@@ -1,0 +1,8 @@
+<div (click)="handleClick()" class="flex items-center gap-2 cursor-pointer">
+  <signal-icon
+    [fontIcon]="getIcon()"
+    [color]="getIconColor()"
+  >
+  </signal-icon>
+  <signal-body [color]="getBodyColor()" [weight]="weight">{{ label }}</signal-body>
+</div>

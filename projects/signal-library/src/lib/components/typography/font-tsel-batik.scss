@@ -1,0 +1,21 @@
+$tselBatikList:(
+    'regular':'telkomsel-batik-regular',
+    'bold':'telkomsel-batik-bold',
+);
+
+@mixin generate-tselbatik($value) {
+    .font-telkomsel-batik-#{$value} {
+        font-family: map-get($tselBatikList, $value), sans-serif;
+    }
+}
+
+@mixin direct-tselbatik($value) {
+    &.font-telkomsel-batik-#{$value} {
+        font-family: map-get($tselBatikList, $value), sans-serif;
+    }
+}
+
+@each $value, $font-family in $tselBatikList {
+    @include generate-tselbatik($value);
+}
+

@@ -1,0 +1,36 @@
+.signal-select-root{
+    position: relative;
+    .signal-input-wrapper{
+        position: relative;
+    }
+    .icon{
+        position: absolute;
+        top: 0;
+        right: 8px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .signal-select-basic{
+        width: 100%;
+        padding: 0 24px;
+        border-radius: 4px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        height: 40px;
+        color: #4E5764;
+        border-radius: 16px;
+        &:focus + .icon{
+            transform: rotate(180deg);
+        }
+        &.signal-select-variant-1{
+            border: 1px solid var(--signal-border-color-default, #CCCFD3);;
+        }
+        .option-item{
+            border-radius: 0;
+            padding: 24px;
+        }
+    }
+}

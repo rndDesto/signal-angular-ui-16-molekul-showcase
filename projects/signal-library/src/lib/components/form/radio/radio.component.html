@@ -1,0 +1,7 @@
+<div (click)="toggleSelected()" class="flex items-center gap-2 cursor-pointer">
+    <signal-icon 
+        [fontIcon]="getIcon()"
+        [color]="getIconColor()">
+    </signal-icon>
+    <signal-body>{{ label }}</signal-body>
+</div>

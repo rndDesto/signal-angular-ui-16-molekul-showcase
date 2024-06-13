@@ -1,0 +1,25 @@
+<div class="signal-select-root">
+    <label class="signal-input-label">{{label}} <span *ngIf="required" class="input-asterik">*</span></label>
+    <div class="signal-input-wrapper">
+        <select 
+            class="signal-select-basic"
+            [ngClass]="getSelectClass()"
+            [(ngModel)]="value" 
+            (ngModelChange)="onChange(value)">
+            <option *ngIf="placeholder" value="">{{placeholder}}</option>
+            <option 
+                *ngFor="let option of options"    
+                class="option-item" 
+                [value]="option['value']">
+                {{option.name}}
+            </option>
+        </select>
+        <div class="icon">
+            <signal-icon fontIcon="ico_chevron_down" color="secondary"></signal-icon>
+        </div>
+    </div>
+
+    <div *ngIf="supportText" [ngClass]="getSupportClass()">
+        {{ supportText }}
+    </div>
+</div>

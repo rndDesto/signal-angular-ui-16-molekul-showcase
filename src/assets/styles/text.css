@@ -1,0 +1,11 @@
+:root {
+    --signal-text-color-tritary: #FF0025;
+    --signal-text-color-valid: #008E53;
+    --signal-text-color-info: #0050AE;
+    --signal-text-color-error: #BC1D42;
+    --signal-text-color-warning: #D9801F;
+    --signal-text-color-primary: #001A41;
+    --signal-text-color-secondary: #4E5764;
+    --signal-text-color-disable: #B3BAC6;
+    --signal-text-color-white: #ffffff;
+  }

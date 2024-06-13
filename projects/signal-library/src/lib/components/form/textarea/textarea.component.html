@@ -1,0 +1,30 @@
+<div class="signal-textarea-root">
+    <div class="signal-input-label">
+        <signal-body 
+        *ngIf="label" 
+        [weight]="labelWeight" 
+        size="1"
+        [color]="labelColor">{{label}} <span *ngIf="required" class="input-asterik">*</span></signal-body>
+    </div>
+    <div class="signal-input-wrapper">
+        <textarea  
+        [(ngModel)]="value" 
+        (ngModelChange)="onChange($event)" 
+        [ngClass]="getInputClass()" 
+        [placeholder]="placeholder" 
+        (blur)="onBlur($event)" 
+        [disabled]="controls?.disabled"
+        [rows]="getRows()"
+        >
+        </textarea>
+        <div class="clear-textarea" *ngIf="value.length">
+            <signal-icon (click)="handleClearText($event)" fontIcon="ico_failed_filled" color="neutral-3"></signal-icon>
+        </div>
+    </div>
+    <div class="supported-text-textarea">
+        <div *ngIf="supportText" [ngClass]="getSupportClass()">
+            {{ supportText }}
+        </div>
+        <div *ngIf="maxChar" class="counter-text">{{value.length}} / {{maxChar}}</div>
+    </div>
+</div>

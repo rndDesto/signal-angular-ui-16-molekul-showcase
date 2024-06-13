@@ -1,0 +1,34 @@
+@mixin text-color {
+  &.text-primary {
+    color: var(--text-color-primary, #001a41);
+  }
+
+  &.text-secondary {
+    color: var(--text-color-secondary, #4e5764);
+  }
+
+  &.text-tritary {
+    color: var(--text-color-red, #ff0025);
+  }
+
+  &.text-valid {
+    color: var(--text-color-valid, #008e53);
+  }
+
+  &.text-info {
+    color: var(--text-color-info, #0050ae);
+  }
+
+  &.text-error {
+    color: var(--text-color-error, #BC1D42);
+  }
+
+  &.text-warning {
+    color: var(--text-color-warning, #fda22b);
+  }
+
+  &.text-disabled {
+    color: var(--text-color-disable, #66707a);
+  }
+}
+

@@ -1,0 +1,51 @@
+<div class="signal-pagination-root">
+    <div class="page-control" (click)="previousPage()">
+        <signal-icon
+        fontIcon="ico_chevron_left" 
+        [color]=" page === 1 ? 'neutral-3':'secondary-7'"></signal-icon>
+    </div>
+    
+    <div class="page-control"
+        *ngFor="let p of pagesArray" 
+        (click)="goToPage(p)">
+        <signal-body 
+        size="1" 
+        [color]="p === page ? 'primary-5':'secondary-7'" 
+        weight="regular" 
+        variant="1"
+        alignment="left"
+        decoration=""> 
+        {{ p }}
+        </signal-body>
+    </div>
+
+    <div class="page-control" *ngIf="shouldShowEllipsis()">
+        &hellip;
+    </div>
+
+    <div class="page-control" 
+    *ngIf="shouldShowLastPage()"
+    (click)="goToPage(totalPages)">
+        <signal-body 
+        size="1" 
+        color='secondary-7' 
+        weight="regular" 
+        variant="1"
+        alignment="left"
+        decoration=""> 
+        {{ totalPages }}
+        </signal-body>
+    </div>
+
+    <div class="page-control">
+        <signal-icon 
+        [styles]="{
+            'root':{'cursor':'pointer'}
+        }"
+        (click)="nextPage()" 
+        fontIcon="ico_chevron_right" 
+        [color]="page === totalPages ? 'neutral-3':'secondary-7'"></signal-icon>
+    </div>
+
+  </div>
+  

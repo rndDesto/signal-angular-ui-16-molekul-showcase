@@ -1,0 +1,20 @@
+@mixin text-align {
+  &.text-align-center {
+    text-align: center;
+  }
+
+  &.text-align-right {
+    text-align: right;
+  }
+
+  &.text-align-left {
+    text-align: left;
+  }
+
+  &.text-align-justify {
+    text-align: justify;
+  }
+
+  
+}
+

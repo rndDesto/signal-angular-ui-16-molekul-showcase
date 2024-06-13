@@ -1,0 +1,29 @@
+<div class="signal-accordion-root" [ngClass]="getAccordionRoot()">
+     <!-- accordion header -->
+    <div 
+        class="accordion-header"
+        [ngStyle]="styles?.root"
+        (click)="!disabled && toggle()" 
+        [ngClass]="{'disabled':disabled}"
+    >
+        <ng-content select="[accordion-header]"></ng-content>
+        <div class="accordion-header-icon" [ngClass]="{'active':isOpen}">
+            <signal-icon 
+                *ngIf="variant === '1'"
+                fontIcon="ico_chevron_down" 
+                color="secondary-6"
+            ></signal-icon>
+        </div>
+    </div>
+    <!-- accordion header -->
+
+    <!-- accordion body -->
+    <div 
+        class="accordion-body" 
+        [@expandCollapse]="getAccordionState()" 
+        [ngStyle]="styles?.body">
+        <ng-content select="[accordion-body]"></ng-content>
+    </div>
+     <!-- accordion body -->
+
+</div>

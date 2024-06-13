@@ -1,0 +1,11 @@
+@import '../../../assets/styles/fontColor.scss';
+@import '../text-align.scss';
+@import '../font-tsel-poppins.scss';
+.signal-title-typo{
+    font-size: 16px;
+    line-height: 24px;
+    @include text-color;
+    @include text-align;
+    @include direct-poppins('bold');
+    @include direct-poppins('regular');
+}

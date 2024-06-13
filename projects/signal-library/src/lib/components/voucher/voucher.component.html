@@ -1,0 +1,29 @@
+<div [ngClass]="!disabled ? getVoucherClass() : getVoucherClassDisable()" class="signal-voucher-root" (click)="!disabled && handleSelectedVoucher($event)">
+    <div class="voucher-upper">
+        <div class="flex items-center gap-2">
+            <signal-icon fontIcon="ico_discount" [color]="!disabled ? 'gradient-primary' : 'secondary-4'"></signal-icon>
+            <signal-body weight="bold" [color]="!disabled ? 'primary' : 'secondary-4'">Potongan Harga {{data.priceDiscount}}</signal-body>
+        </div>
+    </div>
+    <div class="voucher-separator">
+        <div class="voucher-decor">
+            <span class="crop-right"></span>
+            <span class="crop-left"></span>
+            <span class="separator"></span>
+        </div>
+    </div>
+    <div class="voucher-bottom">
+        <signal-body size="3" [color]="!disabled ? 'neutral-6' : 'secondary-4'">Minimum pembelian {{data.priceMinimum}}</signal-body>
+        <div class="flex justify-between">
+            <signal-body size="3" weight="bold" [color]="!disabled ? 'secondary-7' : 'secondary-4'">Berakhir {{data.remainingTime}}</signal-body>
+            <signal-body size="3" [color]="!disabled ? 'info-5' : 'secondary-4'">Lihat Detail</signal-body>
+        </div>
+    </div>
+</div>
+
+
+<!-- turunnya brp persen ya? ada hitungan tersendiri gak? terkait deskrepansi datanya
+bedany turun sama salah implementasi tw ny gmn y?
+
+upto 20% less bagus
+utk mengetahui salah implementasi atau tidak, bisa dicek debug mode gtm dan ga nya -->

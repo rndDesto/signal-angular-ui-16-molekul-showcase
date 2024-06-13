@@ -1,0 +1,100 @@
+// .signal-tooltip{
+//     position: relative;
+//     display: inline-block;
+
+//     &:hover{
+//         +.tooltip-wrapper{
+//             display: block;
+//         }
+//         &:after{
+//             content: '';
+//             display: block;
+//         }
+//     }
+// }
+
+// .tooltip-wrapper{
+//     width: fit-content;
+//     height: fit-content;
+//     display: none;
+//     background-color: black;
+//     padding: 8px;
+//     color: #ffffff;
+//     border-radius: 4px;
+
+//     &.arrow-top{
+//         &::before {
+//             content: '';
+//             position: absolute;
+//             top: -10px;
+//             left: 50%;
+//             margin-left: -5px;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color: black transparent transparent transparent;
+//             transform: rotate(180deg);
+//           }
+//     }
+//     &.arrow-right{
+//         &::before {
+//             content: '';
+//             position: absolute;
+//             top: 50%;
+//             left: 100%;
+//             margin-top: -5px;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color: transparent transparent transparent black;
+//           }
+//     }
+//     &.arrow-bottom{
+//         &::before {
+//             content: '';
+//             position: absolute;
+//             bottom: -10px;
+//             left: 50%;
+//             margin-left: -5px;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color: black transparent transparent transparent;
+//           }
+//     }
+//     &.arrow-left{
+//         &::before {
+//             content: '';
+//             position: absolute;
+//             top: 50%;
+//             left: -10px;
+//             margin-top: -5px;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color: transparent transparent transparent black;
+//             transform: rotate(180deg);
+//           }
+//     }
+// }
+
+.signal-tooltip-root{
+    position: relative;
+
+    .tooltip-trigger{
+        display: inline-block;
+    }
+
+    .tooltip-konten{
+        display: none;
+        background-color: aqua;
+        padding: 8px;
+        border-radius: 4px;
+        z-index: 10;
+        &.top{
+            position: absolute;
+            display: block;
+        }
+        &.bottom{
+            display: block;
+            position: absolute;
+        }
+    }
+
+}

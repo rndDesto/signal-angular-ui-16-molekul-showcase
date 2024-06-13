@@ -1,0 +1,28 @@
+
+$poppinsList:(
+    'regular':'poppins-regular',
+    'bold':'poppins-bold',
+    'extra-bold':'poppins-extra-bold',
+    'light':'poppins-light',
+    'medium':'poppins-medium',
+    'thin':'poppins-thin',
+);
+
+
+@mixin generate-poppins($value) {
+    .font-poppins-#{$value} {
+        font-family: map-get($poppinsList, $value), 'Poppins', sans-serif;
+    }
+}
+
+@mixin direct-poppins($value) {
+    &.font-poppins-#{$value} {
+        font-family: map-get($poppinsList, $value), 'Poppins', sans-serif;
+    }
+}
+
+
+
+@each $value, $font-family in $poppinsList {
+    @include generate-poppins($value);
+}
