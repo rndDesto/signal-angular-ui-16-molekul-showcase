@@ -30,7 +30,9 @@
     "rxjs": "~7.8.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.13.0",
+    "@signal-angular-ui/core": "^16.0.35",
+    "@signal-angular-ui/styles": "^0.0.35"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.10",
